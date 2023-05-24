@@ -1,8 +1,15 @@
 def print_hi(name):
-    # Use a breakpoint in the code line below to debug your script.
     print(f'Hi, {name}')  # Press Ctrl+F8 to toggle the breakpoint.
 
 
-# Press the green button in the gutter to run the script.
+def solution(a, b, c):
+    if a + b == c:
+        result = " С равна сумме A и B"
+    else:
+        result = "С не равна сумме A и B"
+    return result
+
 if __name__ == '__main__':
     print_hi('PyCharm')
+    result = solution(1, 2, 3)
+    print(result)
