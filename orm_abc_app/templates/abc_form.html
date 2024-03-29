@@ -7,7 +7,7 @@
     <pre>
     https://docs.djangoproject.com/en/4.1/ref/forms/
     </pre>
-{#    <form action="/abc_get" metod='get' target="_self">#}
+    {% comment %} <form action="../views.py/abc_get" metod='get' target="_self"> {% endcomment %}
     <form action="{% url 'orm_abc_app:abc_get' %}" metod='get' target="_self">
         {{ abc_form }}
         <label for="id_submit">&nbsp;</label>

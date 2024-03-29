@@ -9,34 +9,44 @@ c_choices = (
 )
 
 
-class Abc(models.Model):
-    task = models.CharField(verbose_name="Формулировка  задачи", default="Равна ли С сумме A и B ?", max_length=255)
-    a = models.IntegerField(verbose_name="Значение А", default=0, )
-    b = models.IntegerField(verbose_name="Значение B", default=0, help_text="Подсказка для поля B")
-    c = models.IntegerField(verbose_name="Значение С", choices=c_choices, default=0, )
-    current_date = models.DateTimeField(verbose_name="Дата изменения(save)", auto_now=True)
+class AbcModel(models.Model):
+    task = models.CharField(
+        verbose_name="Формулировка  задачи",
+        default="Равна ли С сумме A и B ?",
+        max_length=255,
+    )
+    a = models.IntegerField(
+        verbose_name="Значение А",
+        default=0,
+    )
+    b = models.IntegerField(
+        verbose_name="Значение B", default=2, help_text="Подсказка для значения B"
+    )
+    c = models.IntegerField(
+        verbose_name="Значение С",
+        choices=c_choices,
+        default=10,
+    )
+    current_date = models.DateTimeField(
+        verbose_name="Дата изменения(save)", auto_now=True
+    )
 
     def __str__(self):
         # return self.task
         # return '%s %s' % (self.task, self.current_date)
         return f"{self.id}&{self.task}"
 
-
     class Meta:
         verbose_name = "A_B_C"
         verbose_name_plural = "A_B_C_S"
-        ordering = ('-id', '-a')
-
-
+        ordering = ("-id", "-a")
 
 
 # current_date = models.DateTimeField("ДатаВремя", default=datetime.datetime.now())
 # current_date = models.DateTimeField("ДатаВремя", auto_now_add=True)
 
-
 # python manage.py makemigrations
 # python manage.py migrate
-
 
 # admin.py
 # from django.contrib import admin

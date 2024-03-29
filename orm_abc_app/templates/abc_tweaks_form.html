@@ -1,12 +1,13 @@
 {% extends 'layout.html' %}
 
-{% block title %} form_abc_app:form_create {% endblock %}
+{% block title %} form_abc_app:abc_tweaks_form {% endblock %}
 
 {% block content %}
-    <h5>orm_abc_app:form_create</h5>
+    <h5>orm_abc_app:abc_tweaks_form</h5>
     {% load widget_tweaks %}
-    <form {% url 'orm_abc_app:form_create' %} method="POST">
+    <form {% url 'orm_abc_app:abc_tweaks_form' %} method="POST">
         {% csrf_token %}
+        {% comment %} {% render_field form.task %} {% endcomment %}
         <div class="form-group mb-1">
             <div class="mb-1 row">
                 <label class="col-sm-2 col-form-label">Формулировка</label>

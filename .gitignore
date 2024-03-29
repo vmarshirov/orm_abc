@@ -1,6 +1,7 @@
 /.ssh/*
 /.idea/*
 /env/*
+/.venv/*
 /.local/*
 /.cache/*
 .viminfo

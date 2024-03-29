@@ -1,9 +1,9 @@
 from django.contrib import admin
-from .models import Abc
+from .models import AbcModel
 
 # Register your models here.
 
-admin.site.register(Abc)
+admin.site.register(AbcModel)
 # @admin.register(Abc)
 # class AbcAdmin(admin.ModelAdmin):
 #     list_display = ['id', 'task', 'a', 'b', 'c', 'current_date']
