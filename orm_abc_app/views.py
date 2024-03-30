@@ -103,7 +103,7 @@ def abc_result(request):
 
     result = solution(last_object["a"], last_object["b"], last_object["c"])
     print("\nresult: ", result)
-    result = solution(last_object["a"], last_object["b"], last_object["c"])
+  
     
     
     update_obj = AbcModel.objects.filter(id=task_id)
