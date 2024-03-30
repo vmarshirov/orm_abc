@@ -27,6 +27,11 @@ class AbcModel(models.Model):
         choices=c_choices,
         default=10,
     )
+    result = models.CharField(
+        verbose_name="Результат",
+        default="Результат не определен",
+        max_length=255,
+    )
     current_date = models.DateTimeField(
         verbose_name="Дата изменения(save)", auto_now=True
     )
@@ -37,8 +42,8 @@ class AbcModel(models.Model):
         return f"{self.id}&{self.task}"
 
     class Meta:
-        verbose_name = "A_B_C"
-        verbose_name_plural = "A_B_C_S"
+        verbose_name = "A_B_C_Таблица"
+        verbose_name_plural = "A_B_C_Таблицы"
         ordering = ("-id", "-a")
 
 

@@ -94,16 +94,21 @@ def abc_result(request):
     object_list = AbcModel.objects.all().order_by("-id")
     print("\n\nobject_list: ", object_list)
 
-
     last_object = object_list.values("task", "a", "b", "c")[0]
-    task_formulation = last_object["task"]
-    print("\ntask_formulation: ", task_formulation)
     print("\n\nlast_object: ", last_object)
+    task_formulation = object_list.values("task")[0]
+    task_id = object_list.values("id")[0]["id"]
+    print("task_id task_formulation: ", task_id, task_formulation)
 
 
     result = solution(last_object["a"], last_object["b"], last_object["c"])
     print("\nresult: ", result)
-
+    result = solution(last_object["a"], last_object["b"], last_object["c"])
+    
+    
+    update_obj = AbcModel.objects.filter(id=task_id)
+    update_result = result
+    update_obj.update(result = update_result )
 
     # list
     values_list = object_list.values_list()[0]
@@ -124,8 +129,8 @@ def abc_result(request):
 
 
 def table(request):
-    all = AbcModel.objects.all()
-    all.delete()
+    # all = AbcModel.objects.all()
+    # all.delete()
     # objects_list
     objects_values = AbcModel.objects.values()
     print("\nobjects_values:", objects_values)

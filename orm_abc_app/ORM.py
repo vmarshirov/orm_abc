@@ -2,7 +2,11 @@
 https://docs.djangoproject.com/en/4.1/ref/models/querysets/
 https://docs.djangoproject.com/en/4.1/ref/models/
 https://docs.djangoproject.com/en/4.1/ref/models/fields/
+
+
 '''
+
+# python manage.py shell
 
 from django.db import models
 from orm_abc_app.models import AbcModel
@@ -37,7 +41,7 @@ AbcModel.objects.values_list('id').order_by('id').reverse()[:3]
 
 
 AbcModel.objects.filter(id__gte=22).update(task = "update")
-update_obj = AbcModel.objects.filter(id__gte=22)
+update_obj = AbcModel.objects.filter(id__gte=1)
 update_obj.update(task = "update", b=1)
 AbcModel.objects.values_list('id','task').order_by('id').reverse()[:3]
 
