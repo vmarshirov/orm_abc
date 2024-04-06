@@ -39,12 +39,12 @@ class AbcModel(models.Model):
     def __str__(self):
         # return self.task
         # return '%s %s' % (self.task, self.current_date)
-        return f"{self.id}&{self.task}"
+        return f"self.id:{self.id}; self.task:{self.task}"
 
     class Meta:
         verbose_name = "A_B_C_Таблица"
         verbose_name_plural = "A_B_C_Таблицы"
-        ordering = ("-id", "-a")
+        ordering = ("-pk", )
 
 
 # current_date = models.DateTimeField("ДатаВремя", default=datetime.datetime.now())
